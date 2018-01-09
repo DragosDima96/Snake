@@ -1,0 +1,32 @@
+Implementare:
+	Am folosit liste simple inlantuite pentru a retine coordonatele aferente fiecarui sarpe.
+	Am adaugat in structura de sarpe,2 pointeri,unu la inceputul si unul la finalul fiecarui liste.
+	Pentru a creea serpi,ma deplasez pe primul vecin nevizitat,pornind de la cap si ii adaug coordonatele in lista.
+	Marchez aceste coordonate intr-o noua matrice.
+	Acest lucru l-am facut serial(trebuie sa adaug doar un pragma omp parallel for pentru a-l face in paralel)
+
+Updatare pozitie:
+	Pentru a updata pozitia,sterg ultimul element din lista(coada sarpelui),si adaug un nou element la caputul celalalt
+	in functie de directia de deplasare.
+	Modific matricea cu coordonate noile coordonate.
+	Aceste lucruri le-am facut in paralele.
+	
+Colziune:
+	Verific daca valoare de la pozitia in care se afla capul sarpelui in matrice difera de
+	encodingul sarpelui.Daca da,inseamna ca avem coliziune,si afisez matricea la pasul anterior.
+	Acest lucru l-am facut serial. 
+
+Timpi de executie:
+
+Am folosit timpii de executie rezultati din big_input,cu step_count = 20000
+
+Pt OMP_NUM_TRHEADS = 1 variaza intre 6.3 - 6.8
+
+Pt OMP_NUM_TRHEADS = 2 variaza intre 5 - 5.3
+
+Pt OMP_NUM_TRHEADS = 4 variaza intre 3.3 - 4
+
+Pt OMP_NUM_TRHEADS = 6 variaza intre 2.7 - 3
+
+Pt OMP_NUM_TRHEADS = 8 variaza intre 2.6 - 2.8
+
